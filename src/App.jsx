@@ -1,12 +1,14 @@
 // import { useState } from 'react'
 
+import Navbar from "./components/Navbar";
+
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1 className="btn btn-error text-5xl">Vite + React</h1>
-    </>
+    <div className="w-11/12 mx-auto">
+      <Navbar></Navbar>
+    </div>
   );
 }
 
