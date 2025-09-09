@@ -1,5 +1,6 @@
-const Info = ({ addedProducts }) => {
-  console.log(addedProducts);
+const Info = ({ addedProducts, handleDeleteBtn }) => {
+  // console.log(addedProducts);
+  // console.log(handleDeleteBtn);
   return (
     <div>
       {addedProducts.map((item) => (
@@ -8,7 +9,12 @@ const Info = ({ addedProducts }) => {
             <img src={item.image} className="w-12" />
             <h1>{item.title}</h1>
             <h3>${item.price}</h3>
-            <button className="btn btn-error">Delete</button>
+            <button
+              onClick={() => handleDeleteBtn(item.id)}
+              className="btn btn-error"
+            >
+              Delete
+            </button>
           </div>
         </div>
       ))}

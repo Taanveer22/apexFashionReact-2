@@ -1,7 +1,5 @@
-
-
-const Navbar = ({addedProducts}) => {
-  console.log(addedProducts);
+const Navbar = ({ addedProducts }) => {
+  // console.log(addedProducts);
   return (
     <div className="flex justify-between items-center my-5 text-2xl font-medium">
       <h1>Apex Fashion</h1>
@@ -11,7 +9,7 @@ const Navbar = ({addedProducts}) => {
         <li>Price</li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

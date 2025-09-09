@@ -21,7 +21,7 @@ function App() {
   // console.log(isActive);
   const handleAddToCartBtn = (productElement) => {
     // console.log(productElement);
-    console.log(addedProducts);
+    // console.log(addedProducts);
     const isExist = addedProducts.find(
       (existProduct) => existProduct.id === productElement.id
     );
@@ -33,12 +33,21 @@ function App() {
     }
   };
 
+  const handleDeleteBtn = (clickedId) => {
+    // console.log(clickedId);
+    const remainingAddedProducts = addedProducts.filter(
+      (element) => element.id !== clickedId
+    );
+    setAddedProducts(remainingAddedProducts);
+  };
+
   return (
     <div className="w-11/12 mx-auto">
       <Navbar addedProducts={addedProducts}></Navbar>
       <div className="flex justify-between">
         <Products handleAddToCartBtn={handleAddToCartBtn}></Products>
         <Cart
+          handleDeleteBtn={handleDeleteBtn}
           addedProducts={addedProducts}
           isActive={isActive}
           handleActiveButton={handleActiveButton}

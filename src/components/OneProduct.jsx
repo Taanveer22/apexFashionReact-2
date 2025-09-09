@@ -15,7 +15,12 @@ const OneProduct = ({ element, handleAddToCartBtn }) => {
           <p>{description.slice(0, 96)}</p>
           <div className="card-actions justify-end items-center">
             <div className="badge badge-xl badge-outline">${price}</div>
-            <button onClick={()=>handleAddToCartBtn(element)} className="btn btn-accent">Add to cart</button>
+            <button
+              onClick={() => handleAddToCartBtn(element)}
+              className="btn btn-accent"
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       </div>

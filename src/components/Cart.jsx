@@ -1,10 +1,16 @@
 import Info from "./Info";
 import Task from "./Task";
 
-const Cart = ({ handleActiveButton, isActive, addedProducts }) => {
+const Cart = ({
+  handleActiveButton,
+  isActive,
+  addedProducts,
+  handleDeleteBtn,
+}) => {
   // console.log(handleActiveButton);
   // console.log(isActive);
-  console.log(addedProducts);
+  // console.log(addedProducts);
+  // console.log(handleDeleteBtn);
   return (
     <div className="w-full lg:w-1/4">
       <div className="flex justify-between my-5">
@@ -21,7 +27,14 @@ const Cart = ({ handleActiveButton, isActive, addedProducts }) => {
           Task
         </button>
       </div>
-    {isActive.info ? <Info addedProducts={addedProducts}></Info> : <Task></Task>}
+      {isActive.info ? (
+        <Info
+          handleDeleteBtn={handleDeleteBtn}
+          addedProducts={addedProducts}
+        ></Info>
+      ) : (
+        <Task></Task>
+      )}
     </div>
   );
 };
