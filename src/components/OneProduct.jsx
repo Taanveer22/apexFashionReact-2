@@ -1,4 +1,4 @@
-const OneProduct = ({ element }) => {
+const OneProduct = ({ element, handleAddToCartBtn }) => {
   // console.log(element);
   const { image, description, price, title } = element;
   return (
@@ -15,7 +15,7 @@ const OneProduct = ({ element }) => {
           <p>{description.slice(0, 96)}</p>
           <div className="card-actions justify-end items-center">
             <div className="badge badge-xl badge-outline">${price}</div>
-            <button className="btn btn-accent">Add to cart</button>
+            <button onClick={()=>handleAddToCartBtn(element)} className="btn btn-accent">Add to cart</button>
           </div>
         </div>
       </div>

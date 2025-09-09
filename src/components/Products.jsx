@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import OneProduct from "./OneProduct";
 
-const Products = () => {
+const Products = ({handleAddToCartBtn}) => {
   const [allproducts, setAllProducts] = useState([]);
   useEffect(() => {
     fetch("./fakeData.json")
@@ -10,10 +10,9 @@ const Products = () => {
   }, []);
   return (
     <div className="w-full lg:w-3/4">
-      <h1>Available Products : {allproducts.length} </h1>
      <div className="grid grid-cols-1 lg:grid-cols-2">
      {allproducts.map((element, index) => (
-        <OneProduct element={element} key={index}></OneProduct>
+      <OneProduct element={element} key={index} handleAddToCartBtn={handleAddToCartBtn}></OneProduct>
       ))}
      </div>
     </div>
