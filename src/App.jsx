@@ -11,6 +11,8 @@ function App() {
 
   const [addedProducts, setAddedProducts] = useState([]);
 
+  const [cartPrice, setCartPrice] = useState(0);
+
   const handleActiveButton = (status) => {
     if (status === "info") {
       setIsActive({ info: true, status: "info-btn-active" });
@@ -28,6 +30,7 @@ function App() {
     if (isExist) {
       alert("product already added");
     } else {
+      handleIncreasePrice(productElement);
       const newAddedProducts = [...addedProducts, productElement];
       setAddedProducts(newAddedProducts);
     }
@@ -39,12 +42,27 @@ function App() {
       (element) => element.id !== clickedId
     );
     setAddedProducts(remainingAddedProducts);
+    handleDecreasePrice(clickedId);
+  };
+
+  const handleIncreasePrice = (productElement) => {
+    const newCartPrice = productElement.price + cartPrice;
+    setCartPrice(newCartPrice);
+  };
+
+  const handleDecreasePrice = (productId) => {
+    // console.log(productId);
+    const DeletedProductElement = addedProducts.find(
+      (productElement) => productElement.id === productId
+    );
+    const newCartPrice = cartPrice - DeletedProductElement.price;
+    setCartPrice(newCartPrice);
   };
 
   return (
     <div className="w-11/12 mx-auto">
-      <Navbar addedProducts={addedProducts}></Navbar>
-      <div className="flex justify-between">
+      <Navbar cartPrice={cartPrice} addedProducts={addedProducts}></Navbar>
+      <div className="flex flex-col lg:flex-row justify-between">
         <Products handleAddToCartBtn={handleAddToCartBtn}></Products>
         <Cart
           handleDeleteBtn={handleDeleteBtn}
